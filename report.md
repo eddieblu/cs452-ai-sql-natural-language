@@ -39,10 +39,10 @@ INSERT INTO member (member_id, name, email, join_date)
 VALUES (/* next available ID */, 'Catherine', 'catherine@byu.edu', DATE('now'));
 ```
 
-Friendly response -- from Single Domain Double Shot: 
+**Friendly response** -- from Single Domain Double Shot: 
       "friendlyResponse": "There are 7 members in the club.",
       "error": "near \",\": syntax error"
-
+<br><br>
 **GPT SQL Response -- from Zero Shot**:
 ```sql
 ite
@@ -50,7 +50,7 @@ INSERT INTO member (member_id, name, email, join_date)
 VALUES ((SELECT IFNULL(MAX(member_id), 0) + 1 FROM member), 'Catherine', 'catherine@byu.edu', DATE('now'));
 ```
 
-Friendly response -- from Zero Shot: 
+**Friendly response** -- from Zero Shot: 
       "friendlyResponse": "The club has 6 members.",
       "error": "near \"ite\": syntax error"
 
