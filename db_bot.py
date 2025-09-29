@@ -73,7 +73,7 @@ strategies = {
 
 questions = [
     "How many members are there in the club?",
-    # "Add a new member to the club. Her name is Catherine and her email is catherine@byu.edu",
+    "Add a new member to the club. Her name is Catherine and her email is catherine@byu.edu",
     # "Who has attended more than one event so far?",
     # "How many events has the club president been in charge of organizing?",
     # "How long has the club been active?",
