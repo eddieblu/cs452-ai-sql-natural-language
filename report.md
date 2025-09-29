@@ -31,7 +31,7 @@ It struggled to consistently write a correct SQL query for adding a new club mem
 Note: This is not including when the single domain double shot runs after the zero shot. When both have correct SQL queries, the second will present a UNIQUE constraint failure (email not being unique from member being added twice), which is expected behaviour. 
 
 
-Question: Add a new member to the club. Her name is Catherine and her email is catherine@byu.edu
+**Question**: Add a new member to the club. Her name is Catherine and her email is catherine@byu.edu
 
 **GPT SQL Response -- from Single Domain Double Shot**:
 ```sql
