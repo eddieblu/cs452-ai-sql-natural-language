@@ -1,6 +1,6 @@
 # Women in Computer Science club
 
-My project models data that someone running the BYU Women in Computer Science club might find useful. Includes information about club members and officers, club events, companies that host club events, event catering, and relevant information about event participation.
+The data in my project models the BYU Women in Computer Science club. It includes information about club members and officers, club events, companies that host club events, event catering, and relevant information about event participation.
 
 <img src="schema_wics.png">
 
