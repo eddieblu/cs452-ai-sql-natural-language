@@ -1,11 +1,13 @@
 # Women in Computer Science club
 
-My project models data that someone running the BYU Women in Computer Science club might find useful. Includes information about club members and officers, club events, companies that host club events, event catering, and relevant information about event participation.
+The data in my project models the BYU Women in Computer Science club. 
+
+It includes information about club members and officers, club events, companies that host club events, event catering, and relevant information about event participation.
 
 <img src="schema_wics.png">
 
 
-## Query I thought it did well on
+## Sample question that succeeded
 
 **Question**: What is being brought for food at the next event?
 
@@ -23,7 +25,7 @@ WHERE event.date = (SELECT MIN(date) FROM event WHERE date >= DATE('now'));
 
 
 
-## Question that it tripped up on
+## Sample question that failed
 It struggled to consistently write a correct SQL query for adding a new club member into the database. Half of the time this question would pass, the other half not. Some common errors are: (1) the string "ite" is generated before the INSERT INTO statement, throwing a syntax error. And (2) creating a new ID for the new row is commented, rather than actually written. 
 
 Note: This is not including when the single domain double shot runs after the zero shot. When both have correct SQL queries, the second will present a UNIQUE constraint failure (email not being unique from member being added twice), which is expected behaviour. 
@@ -37,10 +39,10 @@ INSERT INTO member (member_id, name, email, join_date)
 VALUES (/* next available ID */, 'Catherine', 'catherine@byu.edu', DATE('now'));
 ```
 
-**Friendly response -- from Single Domain Double Shot**: 
+**Friendly response** -- from Single Domain Double Shot: 
       "friendlyResponse": "There are 7 members in the club.",
       "error": "near \",\": syntax error"
-
+<br><br>
 **GPT SQL Response -- from Zero Shot**:
 ```sql
 ite
@@ -48,12 +50,12 @@ INSERT INTO member (member_id, name, email, join_date)
 VALUES ((SELECT IFNULL(MAX(member_id), 0) + 1 FROM member), 'Catherine', 'catherine@byu.edu', DATE('now'));
 ```
 
-**Friendly response -- from Zero Shot**: 
+**Friendly response** -- from Zero Shot: 
       "friendlyResponse": "The club has 6 members.",
       "error": "near \"ite\": syntax error"
 
 
 Reflection on error: I'm unsure how to consistently get the desired answer. Maybe a different prompting strategy would help. The success in response was variable and unpredictable. 
 
-## Conclusion
-My findings is that the AI I used performed very well for  straight-forward queries. Most questions I came up with and friends came up with were resolved. The model struggled to consistently generate accurate queries for advanced commands.
+## Prompting Strategies
+I used Zero shot aand Single Domain Double shot strategies with the AI and they performed very well for straight-forward queries. Most of the questions that I came up with and that my friends came up with were resolved cleanly. Both prompting strategies struggled to consistently generate accurate queries for advanced commands, like adding someone to the database for example. I think that the AI model handles reporting existing information very well, but making changes to the database (which might have been out of the scope of the project) was not handled accurately. 
